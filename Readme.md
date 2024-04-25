@@ -10,6 +10,8 @@
 
 **IMPORTANT** : **#man --regex -wK 'RestartSec' :** search for keyword ‘RestartSec’ in all man pages and print them
 
+
+
 **Vi stuff**:
 
 **/keyword**: forward search
@@ -36,6 +38,8 @@
 
 **:%s/old\_word/new\_word/g**: substitute/replace globally
 
+
+
 **Globbing**:
 
 **#touch script{0..100}:** create 100 files: script0, script01…script100
@@ -49,6 +53,8 @@
 **#ls [!hm]ost:** doesn’t start with h/m
 
 #**ls -d**: do not display directories content, only names
+
+
 
 **File Management**:
 
@@ -87,6 +93,8 @@ Synbolic links are like shortcuts, they only point to the original file and has 
 **#gunzip myFile.gz** : extract a gzip file, use **-k** to keep and **-c** to extract to location
 
 **NOTE**: bzip2 and xz both have same syntax as gzip, xz has a better compression overall.
+
+
 
 **Working with text files**:
 
@@ -129,6 +137,8 @@ Synbolic links are like shortcuts, they only point to the original file and has 
 `	`**-n** : only print what explicitly asked to be printed, e.g ‘4,10**p**’. 
 
 `	`**-e** : editor-command pass a command to the editor.
+
+
 
 **Connecting to RHEL server**:
 
@@ -195,6 +205,8 @@ explanation : linda (user)	ALL (all machines, or ‘localhost’ for local machi
 **#lid -g wheel**: list all users members of group “wheel”
 
 \- for password management, use **#chage** to control password age settings (stored in /etc/shadow), **#chage linda** is an interactive command to change password settings for linda, **#passwd** also offers the same options + possibility to lock/unlock account passwords.
+
+
 
 **Permissions:**
 
@@ -312,6 +324,8 @@ default via 172.20.10.1 dev ens224 proto dhcp metric 101
 
 **#dig myserver**.com : get DNS information about server
 
+
+
 **Managing processes:**
 
 \- process is a program under execution
@@ -371,6 +385,8 @@ default via 172.20.10.1 dev ens224 proto dhcp metric 101
 **#renice -n  0 12345** : set nice value of process 12345 to 0
 
 \- To offer the best possible performance right from the start, RHEL 8 comes with **tuned**. It offers a daemon that monitors system activity and provides some profiles. In the profiles, an administrator can automatically tune a system for best possible latency, throughput, or power consumption.
+
+
 
 **#systemctl status tuned**
 
@@ -482,6 +498,7 @@ default via 172.20.10.1 dev ens224 proto dhcp metric 101
 
 
 
+
 **Working with systemd:**
 
 \- the Systemd System and Service Manager is used to start stuff. The stuff is referred to as units. Units can be many things. One of the most important unit types is the service.
@@ -539,6 +556,8 @@ WantedBy=multi-user.target
 **-** Other types of units also exist, such as sockets (e.g cockpit) and mounts (e.g tmp), each has its own parameters, check man (5) pages of system.mount, system.socket for more info, also check study guide.
 
 **-** Target units are like group of units; they are units logically grouped which makes it easier to manage at once instead of one by one
+
+
 
 **Tasks scheduling:**
 
@@ -683,6 +702,9 @@ Use man **#man systemd.journal-fields** for all possible fields and filters.
 \- to change default log rotation policy, use **/etc/logrotate.conf**, snap-in files in **/etc/logrotate.d/**
 
 **#man logrotate** for all options and examples.
+
+
+
 
 **Managing Storage:**
 
@@ -987,6 +1009,9 @@ UUID=xxx	/vdo1		xfs	**x-systemd.requires=vdo.service,discard**		0 0
 
 \- Reboot your server to ensure that after reboot the VDO device is correctly mounted.
 
+
+
+
 **Basic Kernel Management:**
 
 **#journalctl -k** or **#dmesg** : View all kernel journal messages and activities
@@ -1035,6 +1060,9 @@ options cdrom debug=1
 
 **#yum install kernel**: will install the newest kernel
 
+
+
+
 **Boot Procedure:**
 
 \- To modify grub runtime configuration, press arrow key when grub menu is displayed, ‘**e**’ to edit, ‘**c**’ for cmds
@@ -1069,19 +1097,44 @@ reboot.target		runlevel 6
 
 \- “wants” in systemd defines which units systemd target wants when started, for this, **wantedBy=XXX.target** is created under **[unit]** stanza to express dependency, e.g if vsftpd has **wantedBy=multi-user.target** it means that vsftpd, if enabled, will automatically starts when multi-user.target (or other targets that include it) is started, when started a symbolic link is created under **/etc/system/system/multi-user.target.wants/** directory
 
+
+
+
 **Change root password:**
 
-\- in grub menu, press ‘**e**’, add **rd.break** to the end and ctrl-x to continue booting, you will fall in a shell
+\- in grub menu, press ‘**e**’, add **rd.break** or **init=/bin/bash** to the end and ctrl-x to continue booting, you will fall in a shell
+
+
+** METHOD ONE ** slow
+**rd.break** to grub boot loader
 
 **#mount -o remount,rw /sysroot**
 
-**#chroot /sysroot**
+**#chroot /sysroot** 
 
 **#passwd root**
 
 **#touch /.autorelabel** ç **IMPORTANT**
 
+**systemctl reboot --force --force**
+
 \- ctrl-D ctrl-D
+
+
+** METHOD TWO ** fastest
+ **init=/bin/bash** to grub boot loader
+
+**#mount -o remount,rw /sysroot**
+
+**#ls -lFaZh /etc/passwd** -- get the selinux context for the file 
+
+**#passwd root**
+
+**$chcon CONTEXT /etc/passwd** 
+
+**exec /sbin/init**
+
+
 
 NOTE: you can also use **#load\_policy -i** to load SELinux policy and use **#restorecon -v /etc/shadow**
 
