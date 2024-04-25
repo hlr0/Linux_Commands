@@ -10,7 +10,9 @@
 
 **IMPORTANT** : **#man --regex -wK 'RestartSec' :** search for keyword ‘RestartSec’ in all man pages and print them
 
-
+\
+\
+\
 
 **Vi stuff**:
 
@@ -38,6 +40,9 @@
 
 **:%s/old\_word/new\_word/g**: substitute/replace globally
 
+\
+\
+\
 
 
 **Globbing**:
