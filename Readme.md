@@ -8,11 +8,8 @@
 
 **#man 1 command**: displays section 1 (user commands), you can also use 8 for admin commands
 
-**IMPORTANT** : **#man --regex -wK 'RestartSec' :** search for keyword ‘RestartSec’ in all man pages and print them
-
+**IMPORTANT** : **#man --regex -wK 'RestartSec' :** search for keyword ‘RestartSec’ in all man pages and print them\
 \
-\
-
 
 **Vi stuff**:
 
