@@ -1,4 +1,7 @@
-﻿**Man commands**:
+** **
+** **
+** **﻿
+**Man commands**:
 
 **#man hier** : displays Linux hierarchy with explanation of each directory
 
@@ -37,12 +40,9 @@
 **o**: insert in new line		
 
 **:%s/old\_word/new\_word/g**: substitute/replace globally
-
-\
-\
-\
-
-
+** **
+** **
+** **
 **Globbing**:
 
 **#touch script{0..100}:** create 100 files: script0, script01…script100
@@ -56,9 +56,9 @@
 **#ls [!hm]ost:** doesn’t start with h/m
 
 #**ls -d**: do not display directories content, only names
-
-
-
+** **
+** **
+** **
 **File Management**:
 
 **#rmdir:** only removes empty directories
@@ -96,9 +96,9 @@ Synbolic links are like shortcuts, they only point to the original file and has 
 **#gunzip myFile.gz** : extract a gzip file, use **-k** to keep and **-c** to extract to location
 
 **NOTE**: bzip2 and xz both have same syntax as gzip, xz has a better compression overall.
-
-
-
+** **
+** **
+** **
 **Working with text files**:
 
 **#tail / head**: self-explanatory, use -n NN to specify number of lines to display
@@ -140,9 +140,9 @@ Synbolic links are like shortcuts, they only point to the original file and has 
 `	`**-n** : only print what explicitly asked to be printed, e.g ‘4,10**p**’. 
 
 `	`**-e** : editor-command pass a command to the editor.
-
-
-
+** **
+** **
+** **
 **Connecting to RHEL server**:
 
 **#chvt 4** : change to virtual terminal (vt) 4, by default there are 6 VTs, this command cannot be executed on SSH session, only on locally, you can also use **ctrl+alt+[F1, F2, …, F6]** to switch.
@@ -160,9 +160,9 @@ Synbolic links are like shortcuts, they only point to the original file and has 
 **linda   ALL=/usr/sbin/useradd, /sbin/passwd, /usr/sbin/usermod**
 
 explanation : linda (user)	ALL (all machines, or ‘localhost’ for local machine)=\*commands separated by ‘,’\*
-
-
-
+** **
+** **
+** **
 **Users & Groups management:**
 
 **#useradd -c “this is bill” bill**: create user bill with comment “this is bill”
@@ -208,9 +208,9 @@ explanation : linda (user)	ALL (all machines, or ‘localhost’ for local machi
 **#lid -g wheel**: list all users members of group “wheel”
 
 \- for password management, use **#chage** to control password age settings (stored in /etc/shadow), **#chage linda** is an interactive command to change password settings for linda, **#passwd** also offers the same options + possibility to lock/unlock account passwords.
-
-
-
+** **
+** **
+** **
 **Permissions:**
 
 **#chown anna /tmp/file**: change user ownership to anna
@@ -272,9 +272,9 @@ Result is an ‘s’ in group section: drwxrw**s**--- (capital S means x isn’t
 NOTE: the default ACL (-d or d:) doesn’t apply on existing files, only new files/directories inherit the ACL, default ACL doesn’t apply on the parent folder directly, so make sure an access ACL is specified so users can access parent directories and subdirectories.
 
 \- You can use **u::**rwx to target the owner or **g::**r—to target current group
-
-
-
+** **
+** **
+** **
 **Networking:**
 
 **#ip link show**: shows current NICs
@@ -326,9 +326,9 @@ default via 172.20.10.1 dev ens224 proto dhcp metric 101
 **#ping** -f google.com : send packets to google and display % of packet loss
 
 **#dig myserver**.com : get DNS information about server
-
-
-
+** **
+** **
+** **
 **Managing processes:**
 
 \- process is a program under execution
@@ -388,9 +388,9 @@ default via 172.20.10.1 dev ens224 proto dhcp metric 101
 **#renice -n  0 12345** : set nice value of process 12345 to 0
 
 \- To offer the best possible performance right from the start, RHEL 8 comes with **tuned**. It offers a daemon that monitors system activity and provides some profiles. In the profiles, an administrator can automatically tune a system for best possible latency, throughput, or power consumption.
-
-
-
+** **
+** **
+** **
 **#systemctl status tuned**
 
 **#tuned-adm list** : list available profiles + active profile (also, **tuned-adm active** to only show active profile)
@@ -498,10 +498,9 @@ default via 172.20.10.1 dev ens224 proto dhcp metric 101
 **#subscription-manager register** : to register server on RH (will ask for username + password)
 
 **#subscription-manager attach --auto** : to attach server to subscription and start using RH repos
-
-
-
-
+** **
+** **
+** **
 **Working with systemd:**
 
 \- the Systemd System and Service Manager is used to start stuff. The stuff is referred to as units. Units can be many things. One of the most important unit types is the service.
@@ -559,9 +558,9 @@ WantedBy=multi-user.target
 **-** Other types of units also exist, such as sockets (e.g cockpit) and mounts (e.g tmp), each has its own parameters, check man (5) pages of system.mount, system.socket for more info, also check study guide.
 
 **-** Target units are like group of units; they are units logically grouped which makes it easier to manage at once instead of one by one
-
-
-
+** **
+** **
+** **
 **Tasks scheduling:**
 
 **#systemctl status crond :** Check the status of crond daemon which takes care of executing cron tasks
@@ -705,10 +704,9 @@ Use man **#man systemd.journal-fields** for all possible fields and filters.
 \- to change default log rotation policy, use **/etc/logrotate.conf**, snap-in files in **/etc/logrotate.d/**
 
 **#man logrotate** for all options and examples.
-
-
-
-
+** **
+** **
+** **
 **Managing Storage:**
 
 \- Hard disks can be partitioned into multiple partitions, we distinguish 2 types of partition schemes:
@@ -1011,10 +1009,9 @@ UUID=xxx	/vdo1		xfs	**x-systemd.requires=vdo.service,discard**		0 0
 **#df -h** :verify the logical size of 1T.
 
 \- Reboot your server to ensure that after reboot the VDO device is correctly mounted.
-
-
-
-
+** **
+** **
+** **
 **Basic Kernel Management:**
 
 **#journalctl -k** or **#dmesg** : View all kernel journal messages and activities
@@ -1062,10 +1059,9 @@ options cdrom debug=1
 \- When updating the kernel, the existing kernel doesn’t get updated, instead, a new one is installed beside the old one, so that if something went wrong, you can always revert to the previous version
 
 **#yum install kernel**: will install the newest kernel
-
-
-
-
+** **
+** **
+** **
 **Boot Procedure:**
 
 \- To modify grub runtime configuration, press arrow key when grub menu is displayed, ‘**e**’ to edit, ‘**c**’ for cmds
@@ -1099,10 +1095,9 @@ reboot.target		runlevel 6
 \- To boot into a specific target, in grub menu, press ‘**e**’ to edit, then add **systemctl.unit=XXX.target**
 
 \- “wants” in systemd defines which units systemd target wants when started, for this, **wantedBy=XXX.target** is created under **[unit]** stanza to express dependency, e.g if vsftpd has **wantedBy=multi-user.target** it means that vsftpd, if enabled, will automatically starts when multi-user.target (or other targets that include it) is started, when started a symbolic link is created under **/etc/system/system/multi-user.target.wants/** directory
-
-
-
-
+** **
+** **
+** **
 **Change root password:**
 
 \- in grub menu, press ‘**e**’, add **rd.break** or **init=/bin/bash** to the end and ctrl-x to continue booting, you will fall in a shell
@@ -1137,16 +1132,18 @@ reboot.target		runlevel 6
 
 **exec /sbin/init**
 
-
-
 NOTE: you can also use **#load\_policy -i** to load SELinux policy and use **#restorecon -v /etc/shadow**
-
+** **
+** **
+** **
 **Shell Scripting:**
 
 \- By default, a shell script is executed in a subshell, if you want to execute script in the current shell context, use **#source myscript** or **#. Myscript**
 
 \- it is better to check the cert guide, it contains complete explanation of all basic stuff to know
-
+** **
+** **
+** **
 **Managed Network Services:**
 
 `	`**SSH:**
@@ -1182,7 +1179,9 @@ Some common options are :
 **-a** : archive mode/preserve almost everything			**-n** : Check what will happens (dry run)
 
 **-r** : recursive sync						**-p**: preserve symbolic links
-
+** **
+** **
+** **
 **HTTP:** 
 
 **#yum install -y httpd** : Install apache HTTP server
@@ -1262,7 +1261,9 @@ Note: **-Z** is almost the universal switch to show SELinux context information,
 **#timedatectl set-timezone Africa/Casablanca** : Set time zone
 
 **#timedatectl list-timezones :** List known time zones
-
+** **
+** **
+** **
 **Mounting NFS:**
 
 \- NFS server setup isn’t part of RHCSA, all needs to be done is to mount a remote NFS share.
@@ -1274,7 +1275,9 @@ Note: **-Z** is almost the universal switch to show SELinux context information,
 \- To mount NFS share persistently, use **nfs** FS and **\_netdev** as mount option:
 
 192\.168.192.193:/data            /nfs          **nfs**     **\_netdev**         0 0
-
+** **
+** **
+** **
 **Mounting SAMBA:**
 
 \- SAMBA is the open source implementation of SMB protocol, allowing Windows clients (beside Linux) to access Linux file shares.
@@ -1292,7 +1295,9 @@ Note: **-Z** is almost the universal switch to show SELinux context information,
 \- To mount samba share persistently in /etc/fstab, use cifs as file system and \_netdev as option with username and password
 
 **//192.168.192.50/sambafolder**	/myshare	**cifs**	**\_netdev,username=sambauser,password=P@ssw0rd**	0 0
-
+** **
+** **
+** **
 **AutoFS:**
 
 \- autoFS has the ability to mount network shares only when they are needed instead of at boot
@@ -1308,7 +1313,9 @@ Note: **-Z** is almost the universal switch to show SELinux context information,
 mynfs	-rw	192.168.168.50:/data
 
 **#systemctl restart autofs**
-
+** **
+** **
+** **
 **Containers:**
 
 **#yum module install container-tools** : Install all containers tools
