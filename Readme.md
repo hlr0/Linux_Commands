@@ -6,30 +6,30 @@
 ##### modify terminal for switching tabs 
 vi ~/.config/terminator/config
 
------------- before ------------ 
-[keybindings]
-    switch_to_tab_1 = 
-    switch_to_tab_10 =
-    switch_to_tab_2 = 
-    switch_to_tab_3 = 
-    switch_to_tab_4 = 
-    switch_to_tab_5 =
-    switch_to_tab_6 =
-    switch_to_tab_7 =
-    switch_to_tab_8 =
+------------ before ------------ \
+[keybindings]\
+    switch_to_tab_1 = \
+    switch_to_tab_10 =\
+    switch_to_tab_2 = \
+    switch_to_tab_3 = \
+    switch_to_tab_4 = \
+    switch_to_tab_5 =\
+    switch_to_tab_6 =\
+    switch_to_tab_7 =\
+    switch_to_tab_8 =\
     switch_to_tab_9 =
  
------------- after ------------ 
-[keybindings]
-    switch_to_tab_1 = <Alt>1
-    switch_to_tab_10 =
-    switch_to_tab_2 = <Alt>2
-    switch_to_tab_3 = <Alt>3
-    switch_to_tab_4 = <Alt>4
-    switch_to_tab_5 = <Alt>5
-    switch_to_tab_6 = <Alt>6
-    switch_to_tab_7 = <Alt>7
-    switch_to_tab_8 = <Alt>8
+------------ after ------------ \
+[keybindings]\
+    switch_to_tab_1 = <Alt>1\
+    switch_to_tab_10 =\
+    switch_to_tab_2 = <Alt>2\
+    switch_to_tab_3 = <Alt>3\
+    switch_to_tab_4 = <Alt>4\
+    switch_to_tab_5 = <Alt>5\
+    switch_to_tab_6 = <Alt>6\
+    switch_to_tab_7 = <Alt>7\
+    switch_to_tab_8 = <Alt>8\
     switch_to_tab_9 = <Alt>9
 
 In the Terminal window, right click on mouse, select Preferences > Key settings > switch_to_tab_1~10 keybinding > Enter shortcut to use
