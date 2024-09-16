@@ -88,6 +88,10 @@ seq 10 | parallel /usr/bin/python3 --version\
 **###for loop file**\
 for i in $(cat list);do echo $i; done\
 \
+**###linux screen**\
+screen -S "mylittlescreen" -d -m\
+screen -r "mylittlescreen" -X stuff $'ls\n'\
+\
 **###random mac address**\
 ///file NAME: mac.sh
 ```
