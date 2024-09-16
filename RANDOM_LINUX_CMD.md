@@ -10,6 +10,7 @@ rsync -avzh -e "ssh -J root@source1.com,root@source2.com" root@source.com:/pwd/ 
 \
 **###pivot ssh**\
 ssh -t root@source.com ssh root@destination.com\
+ssh -J "root@source1.com,root@source2.com" root@destination.com\
 \
 **###ettercap**\
 ettercap -T -S -q -M arp:remote /<ipaddr_client>// /<ipaddr_router>// #ettercap mitm\
