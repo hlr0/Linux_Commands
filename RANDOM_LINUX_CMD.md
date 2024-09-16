@@ -20,6 +20,9 @@ nmap -sn 10.10.10.0/24 | awk '/Nmap scan report for/{printf $5;}/MAC Address:/{p
 **###short update and upgrade**\
 apt update ; apt upgrade\
 \
+**###GNU parallel bash script run multiple servers**\
+parallel --linebuffer -P 200 --eta -S 10/root@srv47.hostserv.co.za -S 10/root@srv155.hostserv.co.za -S 10/root@srv176.hostserv.co.za --trc my_script.sh bash ::: ./my_script.sh | tee output.txt\
+\
 **###change mnt directory to mount drive**\
 ls -lsah / | egrep -e "mnt" | awk {'print $2,$6,$10'} | sed -e "s/mnt/mount drive/g" | cut -d "e" -f 1\
 \
