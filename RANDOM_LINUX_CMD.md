@@ -67,6 +67,13 @@ telnet 123.456.789.012 3386\
 **###check the connection**\
 tcpdump -n tcp and port 700\
 \
+
+**###send email from terminal**\
+swaks --to user@email.com --from user@email.com --server mail.server.com --auth LOGIN --auth-user user@email.com --auth-password ABDDEEFFbcdef123456 --tls
+
+**###connect mysql remote machine**\
+mysql -h SERVER.COM -u USER -pPASSWORD -e 'use DATABASE; select * from TABLENAME where COLUMN = "122345";'\
+\
 **###check mysql and its logs**\
 mysql -se "SHOW VARIABLES" | grep -e log_error -e general_log -e slow_query_log\
 mysql -e "SELECT @@GLOBAL.log_error"\
