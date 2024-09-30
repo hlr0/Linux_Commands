@@ -92,6 +92,37 @@ seq 10 | parallel /usr/bin/python3 --version\
 **###for loop file**\
 for i in $(cat list);do echo $i; done\
 \
+**###TBW of an SSD harddrive**\
+//////-------------------------------------------------------------\
+$ fdisk -l\
+Disk /dev/sda: 232.89 GiB, 250059350016 bytes, 488397168 sectors\
+Disk model: Samsung SSD 850 \
+Units: sectors of 1 * 512 = 512 bytes\
+Sector size (logical/physical): 512 bytes / 512 bytes\
+I/O size (minimum/optimal): 512 bytes / 512 bytes\
+Disklabel type: gpt\
+Disk identifier: EE9E96CA-39C9-4D14-8DFD-00B550B5E579\
+\
+Device       Start       End   Sectors   Size Type\
+/dev/sda1     2048   1050623   1048576   512M EFI System\
+/dev/sda2  1050624 488396799 487346176 232.4G Linux filesystem\
+\
+$ sudo smartctl -Ai /dev/sda | grep -E 'Sector Size|Total_LBAs_Written'\
+Sector Size:      512 bytes logical/physical\
+241 Total_LBAs_Written      0x0032   099   099   000    Old_age   Always       -       1214641768\
+\
+$ echo $(calc 1214641768*512/1024^3) "GB"\
+    73.20892595080658793449 GB
+
+\
+/////ONELINER\
+tbw=$(smartctl -Ai /dev/sda | grep -i 'Total_LBAs_Written' | awk '{print $10}' | xargs -I % calc %*512/1024^4 | sed -e 's/~//g'); echo $tbw "TBW"\
+73.20892595080658793449 TBW\
+\
+TBW of Samsung SSD 850 is 300TBW\
+300 - 74 = 226 tBW remaining\
+
+//////-------------------------------------------------------------\
 **###linux screen**\
 screen -S "mylittlescreen" -d -m\
 screen -r "mylittlescreen" -X stuff $'ls\n'\
