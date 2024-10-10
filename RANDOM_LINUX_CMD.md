@@ -8,6 +8,13 @@ rsync -avh thisfolder tootherfolder   ##works like diff will only copy what is n
 **###jump via another host that can connect to destination**\
 rsync -avzh -e "ssh -J root@source1.com,root@source2.com" root@source.com:/pwd/ destination/pwd/file\
 \
+**###RDP Connect###**\
+xfreerdp /monitor-list\
+xfreerdp /monitors:0,1 /multimon /u:username@workgroup /v:computer.localhost.com\
+\
+**###QEMU KVM VNC Connect###**\
+virt-manager -c qemu+ssh://username@localhost.computer.com/system\
+\
 **###pivot ssh**\
 ssh -t root@source.com ssh root@destination.com\
 ssh -J "root@source1.com,root@source2.com" root@destination.com\
