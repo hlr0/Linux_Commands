@@ -126,6 +126,52 @@ This is a showing that routing through the spam titan filter systems are going b
 . #dont forget this dot
  
 
+
+**###Password Generator**\
+/usr/bin/crunch 8 8 -f /usr/share/crunch/charset.lst numeric -i
+
+hex-lower                     = [0123456789abcdef]\
+hex-upper                     = [0123456789ABCDEF]
+
+numeric                       = [0123456789]\
+numeric-space                 = [0123456789 ]
+
+symbols14                     = [!@#$%^&*()-_+=]\
+symbols14-space               = [!@#$%^&*()-_+= ]
+
+symbols-all                   = [!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/]\
+symbols-all-space             = [!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ ]
+
+ualpha                        = [ABCDEFGHIJKLMNOPQRSTUVWXYZ]\
+ualpha-space                  = [ABCDEFGHIJKLMNOPQRSTUVWXYZ ]\
+ualpha-numeric                = [ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]\
+ualpha-numeric-space          = [ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ]\
+ualpha-numeric-symbol14       = [ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=]\
+ualpha-numeric-symbol14-space = [ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+= ]\
+ualpha-numeric-all            = [ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/]\
+ualpha-numeric-all-space      = [ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ ]
+
+lalpha                        = [abcdefghijklmnopqrstuvwxyz]\
+lalpha-space                  = [abcdefghijklmnopqrstuvwxyz ]\
+lalpha-numeric                = [abcdefghijklmnopqrstuvwxyz0123456789]\
+lalpha-numeric-space          = [abcdefghijklmnopqrstuvwxyz0123456789 ]\
+lalpha-numeric-symbol14       = [abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+=]\
+lalpha-numeric-symbol14-space = [abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+= ]\
+lalpha-numeric-all            = [abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/]\
+lalpha-numeric-all-space      = [abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ ]
+
+mixalpha                   = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]\
+mixalpha-space             = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ]\
+mixalpha-numeric           = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]\
+mixalpha-numeric-space     = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ]\
+mixalpha-numeric-symbol14  = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=]\
+mixalpha-numeric-symbol14-space = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+= ]\
+mixalpha-numeric-all       = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/]\
+mixalpha-numeric-all-space = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ ]
+
+
+
+
 **###TBW of an SSD harddrive**\
 //////-------------------------------------------------------------\
 $ fdisk -l\
