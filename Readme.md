@@ -148,6 +148,10 @@ Sector Size:      512 bytes logical/physical\
 $ echo $(calc 1214641768*512/1024^3) "GB"\
     73.20892595080658793449 GB
 
+##**mdadm**##
+You can force a resync of a RAID1 array with mdadm. First, add the missing partition back to the array using mdadm --add /dev/md127 /dev/sdX1, replacing /dev/sdX1 with the correct device. Then, initiate a rebuild with echo 'repair' > /sys/block/md127/md/sync_action. Check the progress with cat /proc/mdstat.
+
+
 \
 /////ONELINER\
 tbw=$(smartctl -Ai /dev/sda | grep -i 'Total_LBAs_Written' | awk '{print $10}' | xargs -I % calc %*512/1024^4 | sed -e 's/~//g'); echo $tbw "TBW"\
