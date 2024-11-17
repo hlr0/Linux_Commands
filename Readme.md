@@ -1569,6 +1569,46 @@ Note: **-Z** is almost the universal switch to show SELinux context information,
 
 \- For a human-readable SEL logs, install the following packages: **#yum install setroubleshoot setroubleshoot-server** and** then **#service auditd stop** and **#systemctl auditd start**
 
+
+
+`	`**Iptables Firewall:**
+
+iptables -F
+
+iptables -X
+
+iptables -P INPUT DROP
+
+iptables -P FORWARD DROP
+
+iptables -A INPUT -p tcp --destination-port 22 -j DROP
+
+iptables -A INPUT -p tcp --destination-port 4124 -j DROP
+
+iptables -A INPUT -p udp --destination-port 4124 -j DROP
+
+iptables -A INPUT -p tcp --destination-port 2633 -j DROP
+
+iptables -P OUTPUT ACCEPT
+
+iptables -A INPUT -i lo -j ACCEPT
+
+iptables -A INPUT -s x.x.x.x -j ACCEPT
+
+iptables -A INPUT -s x.x.x.x/24 -j ACCEPT
+
+iptables -A OUTPUT -d x.x.x.x/24 -j ACCEPT
+
+iptables-save
+
+iptables -L -v
+ 
+
+
+
+
+
+
 `	`**Firewall:**
 
 \- firewalld replaced iptables since RHEL 7
