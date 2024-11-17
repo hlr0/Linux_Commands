@@ -102,6 +102,30 @@ seq 10 | parallel /usr/bin/python3 --version\
 **###for loop file**\
 for i in $(cat list);do echo $i; done\
 \
+
+**###Send email with telnet**
+
+telnet spamtitan.local.com 25
+ 
+EHLO server.domain.com or HELO server.domain.com
+ 
+mail from:<email@domain.com>
+ 
+rcpt to:<email@domain.com>
+ 
+DATA
+ 
+From: email@domain.com
+
+To: email@domain.com
+
+Subject: Telnet email
+ 
+This is a showing that routing through the spam titan filter systems are going back out bound via our server 
+
+. #dont forget this dot
+ 
+
 **###TBW of an SSD harddrive**\
 //////-------------------------------------------------------------\
 $ fdisk -l\
