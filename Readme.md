@@ -128,7 +128,10 @@ This is a showing that routing through the spam titan filter systems are going b
 
 
 **###Password Generator**\
-/usr/bin/crunch 8 8 -f /usr/share/crunch/charset.lst numeric -i
+/usr/bin/crunch 8 8 -f /usr/share/crunch/charset.lst numeric -i\
+
+
+
 
 hex-lower                     = [0123456789abcdef]\
 hex-upper                     = [0123456789ABCDEF]
