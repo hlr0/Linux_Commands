@@ -65,6 +65,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"\
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"\
 \
 **###generate ssl certificate 2048 bit strong - no CA**\
+openssl s_client -connect server.domain.com:443 < /dev/null | openssl x509 -noout -dates\
 openssl genrsa -out epp.key 2048\
 openssl req -new -x509 -key epp.key -out epp.crt -days 365\
 cat epp.key epp.crt > epp.pem\
