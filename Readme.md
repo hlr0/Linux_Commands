@@ -31,9 +31,6 @@ nmap -sn 10.10.10.0/24 | awk '/Nmap scan report for/{printf $5;}/MAC Address:/{p
 **###short update and upgrade**\
 apt update ; apt upgrade\
 \
-**###GNU parallel bash script run multiple servers**\
-parallel --linebuffer -P 200 --eta -S 10/root@srv47.hostserv.co.za -S 10/root@srv155.hostserv.co.za -S 10/root@srv176.hostserv.co.za --trc my_script.sh bash ::: ./my_script.sh | tee output.txt\
-\
 **###change mnt directory to mount drive**\
 ls -lsah / | egrep -e "mnt" | awk {'print $2,$6,$10'} | sed -e "s/mnt/mount drive/g" | cut -d "e" -f 1\
 \
@@ -1864,3 +1861,45 @@ For rootless containers, this can be achieved using user system units:
 NOTE: system user units only starts when user logs in and stops when user logs out (you can confirm using **#exit**), to keep services (containers in our example) persistent even after user logs out, use the following command:
 
 **#loginctl enable-linger student :** enable linger for user student
+
+
+
+
+
+
+# GNU PARALLEL
+**###GNU parallel bash script run multiple servers**\
+parallel --linebuffer -P 200 --eta -S 10/root@domain.com -S 10/root@domain.com -S 10/root@domain.com --trc my_script.sh bash ::: ./my_script.sh | tee output.txt\
+\
+
+```
+#!/bin/bash
+#USAGE: cat /root/sysadmin/sometextfile | parallel -n1 -P50 -I% "printf '\n\n%\n\n' ; /root/sysadmin/myscript.sh % " 
+
+i=$1
+
+function REMOTE_PAYLOAD(){
+
+  # String to search for
+  string='thiswillworkforgnuparallelscripts'
+
+  # Print server info
+  printf "$HOSTNAME - "
+  printf "$(hostname -i) \n"
+
+  # Search for the string in /etc/ directory, suppress errors
+  grep 2>/dev/null -ir $string /etc/
+  grep 2>/dev/null -ir $string /var/
+  grep 2>/dev/null -ir $string /home/
+  grep 2>/dev/null -ir $string /root/
+  grep 2>/dev/null -ir $string /opt/
+
+
+}
+printf "============"${i}"===========\n"
+ssh 2> /dev/null -oStrictHostKeyChecking=no -o ConnectTimeout=2 -oBatchMode=yes root@${i} "$(typeset -f) ; REMOTE_PAYLOAD" 
+```
+
+
+
+
