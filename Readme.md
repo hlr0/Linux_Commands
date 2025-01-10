@@ -98,6 +98,8 @@ ls -lsah | parallel echo\
 seq 1 | parallel /usr/bin/php8.1 test.php\
 seq 10 | parallel /usr/bin/python3 --version\
 \
+find /var/log/ -type f | parallel 'grep -i "hello" {}'
+\
 **###for loop file**\
 for i in $(cat list);do echo $i; done\
 \
