@@ -1887,7 +1887,7 @@ mount /tmp/test100m /tmp/tmount\
 cd /tmp/tmount\
 touch hello.txt\
 umount /tmp/tmount\
-debugfs -w /tmp/test100m\
+debugfs -w /tmp/test100m
 
 ```
 debugfs:  cd testdir
