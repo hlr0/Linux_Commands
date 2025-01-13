@@ -1889,7 +1889,7 @@ touch hello.txt\
 umount /tmp/tmount\
 debugfs -w /tmp/test100m\
 
-``
+```
 debugfs:  cd testdir
 debugfs:  stat testfile
 
@@ -1915,9 +1915,8 @@ debugfs:  quit
 mount /tmp/test100m /tmp/tmount\
 cd /tmp/tmount/testdir\
 stat testfile\
-\
-##### end of birthday of the file will have changed.
 
+##### end of birthday of the file will have changed.
 
 
 
