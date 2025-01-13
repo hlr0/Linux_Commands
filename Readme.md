@@ -1888,6 +1888,7 @@ cd /tmp/tmount\
 touch hello.txt\
 umount /tmp/tmount\
 debugfs -w /tmp/test100m\
+
 ``
 debugfs:  cd testdir
 debugfs:  stat testfile
@@ -1910,6 +1911,7 @@ EXTENTS:
 debugfs:  set_inode_field <13> crtime 192310292030
 debugfs:  quit
 ```
+
 mount /tmp/test100m /tmp/tmount\
 cd /tmp/tmount/testdir\
 stat testfile\
