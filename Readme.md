@@ -1888,33 +1888,33 @@ cd /tmp/tmount\
 touch hello.txt\
 umount /tmp/tmount\
 debugfs -w /tmp/test100m\
-\
-debugfs:  cd testdir\
-debugfs:  stat testfile\
-\
-Inode: 13   Type: regular    Mode:  0664   Flags: 0x80000\
-Generation: 3688309895    Version: 0x00000000:00000005\
-User:  1000   Group:  1000   Project:     0   Size: 0\
-File ACL: 0\
-Links: 1   Blockcount: 0\
-Fragment:  Address: 0    Number: 0    Size: 0\
- ctime: 0x665c6fbc:a7d083ac -- Sun Jun  2 16:12:28 2024\
- atime: 0xc56c0d1c:00000000 -- Thu Nov 10 09:05:00 1938\
- mtime: 0xc56c0d1c:00000000 -- Thu Nov 10 09:05:00 1938\
-crtime: 0x665c6f18:16ba29ec -- Sun Jun  2 16:09:44 2024\
-Size of extra inode fields: 32\
-Inode checksum: 0x2b0c4f97\
-EXTENTS:\
-(END)\
-\
-debugfs:  set_inode_field <13> crtime 192310292030\
-debugfs:  quit\
-\
+``
+debugfs:  cd testdir
+debugfs:  stat testfile
+
+Inode: 13   Type: regular    Mode:  0664   Flags: 0x80000
+Generation: 3688309895    Version: 0x00000000:00000005
+User:  1000   Group:  1000   Project:     0   Size: 0
+File ACL: 0
+Links: 1   Blockcount: 0
+Fragment:  Address: 0    Number: 0    Size: 0
+ ctime: 0x665c6fbc:a7d083ac -- Sun Jun  2 16:12:28 2024
+ atime: 0xc56c0d1c:00000000 -- Thu Nov 10 09:05:00 1938
+ mtime: 0xc56c0d1c:00000000 -- Thu Nov 10 09:05:00 1938
+crtime: 0x665c6f18:16ba29ec -- Sun Jun  2 16:09:44 2024
+Size of extra inode fields: 32
+Inode checksum: 0x2b0c4f97
+EXTENTS:
+(END)
+
+debugfs:  set_inode_field <13> crtime 192310292030
+debugfs:  quit
+```
 mount /tmp/test100m /tmp/tmount\
 cd /tmp/tmount/testdir\
 stat testfile\
 \
-##### end of birthday of the file will have changed.\
+##### end of birthday of the file will have changed.
 
 
 
