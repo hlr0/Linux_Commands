@@ -67,6 +67,9 @@ openssl genrsa -out epp.key 2048\
 openssl req -new -x509 -key epp.key -out epp.crt -days 365\
 cat epp.key epp.crt > epp.pem\
 \
+**###generate csr certificate for ssl**\
+openssl req -new -newkey rsa:2048 -nodes -keyout DOMAINNAME.key -out DOMAINNAME.csr\
+\
 **###show contents of ssl certificate**\
 openssl s_client x509 -in name.crt -text -noout\
 \
