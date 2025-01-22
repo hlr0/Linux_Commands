@@ -91,7 +91,7 @@ swaks --to user@email.com --from user@email.com --server mail.server.com --auth 
 swaks --server 'mail.server.com' --port 587 --auth login --tls --auth-user 'user@email.com' --auth-password 'abcdef123456' --header 'Subject: Testing connect' --body 'this is the body of the email' --add-header 'Content-Type: text/html' --to user@email.com --from user@email.com
 
 FETCHMAIL\
-fetchmail -v -p POP3 -u transfers@z-fin.co.za --ssl --port 995 --mda "/usr/bin/procmail -f %F" mail.z-fin.co.za
+fetchmail -v -p POP3 -u users@email.com --ssl --port 995 --mda "/usr/bin/procmail -f %F" pop3.mail.server
 
 
 **###connect mysql remote machine**\
