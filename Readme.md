@@ -84,8 +84,13 @@ tcpdump -n tcp and port 700\
 \
 
 **###send email from terminal**\
+SWAKS COMMAND\
 swaks --to user@email.com --from user@email.com --server mail.server.com --auth LOGIN --auth-user user@email.com --auth-password ABDDEEFFbcdef123456 --tls\
 swaks --server 'mail.server.com' --port 587 --auth login --tls --auth-user 'user@email.com' --auth-password 'abcdef123456' --header 'Subject: Testing connect' --body 'this is the body of the email' --add-header 'Content-Type: text/html' --to user@email.com --from user@email.com
+
+FETCHMAIL\
+fetchmail -v -p POP3 -u transfers@z-fin.co.za --ssl --port 995 --mda "/usr/bin/procmail -f %F" mail.z-fin.co.za
+
 
 **###connect mysql remote machine**\
 mysql -h SERVER.COM -u USER -pPASSWORD -e 'use DATABASE; select * from TABLENAME where COLUMN = "122345";'\
