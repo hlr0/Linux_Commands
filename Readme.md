@@ -83,7 +83,9 @@ telnet 123.456.789.012 3386\
 tcpdump -n tcp and port 700\
 \
 
-**###send email from terminal**\
+**###send and receive email from terminal**\
+install the following first -- swaks procmail msmtp fetchmail openssl\
+\
 SWAKS COMMAND\
 swaks --to user@email.com --from user@email.com --server mail.server.com --auth LOGIN --auth-user user@email.com --auth-password ABDDEEFFbcdef123456 --tls\
 swaks --server 'mail.server.com' --port 587 --auth login --tls --auth-user 'user@email.com' --auth-password 'abcdef123456' --header 'Subject: Testing connect' --body 'this is the body of the email' --add-header 'Content-Type: text/html' --to user@email.com --from user@email.com
