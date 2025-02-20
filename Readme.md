@@ -1703,6 +1703,16 @@ iptables -L -v
 
 
 
+# Block icmp echo requests
+in the /etc/sysctl.conf file\
+\
+net.ipv4.icmp_echo_ignore_all = 1\
+this will tell kernel to not respond any ping response,\
+after this run sysctl -p 
+
+
+
+
 
 
 
