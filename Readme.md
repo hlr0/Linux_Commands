@@ -120,9 +120,9 @@ telnet spamtitan.local.com 25
  
 EHLO server.domain.com or HELO server.domain.com
  
-mail from:"<email@domain.com>" #remove the "
+mail from:< email@domain.com > #remove the spaces
  
-rcpt to:"<email@domain.com>" #remove the "
+rcpt to:< email@domain.com > #remove the spaces
  
 DATA
  
