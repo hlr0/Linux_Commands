@@ -285,6 +285,12 @@ In the latest versions of tcpdump/libpcap, we can use the following command to c
 **###ansible adhoc command run**\
 ansible DOMAINNAME -i cluster/inventory/staggered_hosts --private-key /home/user/.ssh/id_rsa -u root --ask-pass -m shell -a "ls -lsah" -v\
 \
+# CHECK CONNECTIONS TO BOX
+ss -tn | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr
+\
+# CHECK WHICH PROCESS CONSUMES MOST CPU
+ps -eo pid,ppid,cmd,%cpu --sort=-%cpu | head
+\
 # AWK Commands
 replace certain linux commands with AWK\
 --------------------------------------------------------\
