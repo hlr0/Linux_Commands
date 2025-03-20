@@ -1984,7 +1984,7 @@ ssh 2> /dev/null -oStrictHostKeyChecking=no -o ConnectTimeout=2 -oBatchMode=yes 
 
 
 
-#sysV - init.d scripting
+# sysV - init.d scripting
 ```
 #!/bin/bash
 # chkconfig: 2345 20 80
