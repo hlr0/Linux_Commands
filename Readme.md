@@ -1984,3 +1984,59 @@ ssh 2> /dev/null -oStrictHostKeyChecking=no -o ConnectTimeout=2 -oBatchMode=yes 
 
 
 
+#sysV - init.d scripting
+```
+#!/bin/bash
+# chkconfig: 2345 20 80
+# description: Description comes here....
+   
+# Source function library.
+. /etc/init.d/functions
+   
+start() {
+    # code to start app comes here 
+    # example: daemon program_name &
+}
+   
+stop() {
+    # code to stop app comes here 
+    # example: killproc program_name
+}
+   
+case "$1" in 
+    start)
+       start
+       ;;
+    stop)
+       stop
+       ;;
+    restart)
+       stop
+       start
+       ;;
+    status)
+       # code to check status of app comes here 
+       # example: status program_name
+       ;;
+    *)
+       echo "Usage: $0 {start|stop|status|restart}"
+esac
+   
+exit 0
+```
+touch /etc/init.d (e.g., /etc/init.d/myscript)\
+chkconfig --add myscript\
+chkconfig --level 2345 myscript on\
+chkconfig --list | grep myscript\
+/etc/init.d/myscript start\
+chkconfig myscript start\
+
+
+
+
+
+
+
+
+
+
