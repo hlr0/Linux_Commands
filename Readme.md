@@ -93,6 +93,8 @@ swaks --server 'mail.server.com' --port 587 --auth login --tls --auth-user 'user
 FETCHMAIL\
 fetchmail -v -p POP3 -u users@email.com --ssl --port 995 --mda "/usr/bin/procmail -f %F" pop3.mail.server
 
+**###Multi Process Strace**\
+ps -eo pid,user,command,%cpu | grep lsphp | grep home | awk '{print $1}' | xargs -I % strace -vvv -T -ff  -s 4096 -p %
 
 **###connect mysql remote machine**\
 mysql -h SERVER.COM -u USER -pPASSWORD -e 'use DATABASE; select * from TABLENAME where COLUMN = "122345";'\
