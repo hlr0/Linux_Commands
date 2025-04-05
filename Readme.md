@@ -138,7 +138,9 @@ This is a showing that routing through the spam titan filter systems are going b
 
 . #dont forget this dot
  
-
+\
+Samba share connect
+//192.168.0.50/foldername/ /thishostfoldername/ cifs username=MYUSERNAME,password=MYPASSWORD,iocharset=utf8,dir_mode=0777,file_mode=0777  0  0 
 
 
 \
