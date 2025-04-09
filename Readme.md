@@ -15,7 +15,7 @@ rsync -avzh -e "ssh -J root@source1.com,root@source2.com" root@source.com:/pwd/ 
 xfreerdp /monitor-list\
 xfreerdp /monitors:0,1 /multimon /u:username@workgroup /v:computer.localhost.com\
 \
-**###QEMU KVM VNC Connect###**\
+**###QEMU KVM VNC Connect - OPENNEBULA###**\
 virt-manager -c qemu+ssh://username@localhost.computer.com/system\
 \
 **###pivot ssh**\
