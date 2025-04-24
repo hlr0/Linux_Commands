@@ -325,7 +325,7 @@ crunch 8 8 "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz" -t @
 \
 ////Aircrack Create Wordlists\
 crunch 8 8 "abcdefghijklmnopqrstuvwxyz" -t @@@@@@@@ | tee 8char_lowercase_ALPHA_wordlist.txt    #1.7TB file size\
-crunch 8 8 "ABCDEFGHIJKLMNOPQRSTUVWXY" -t @@@@@@@@ | tee 8char_lowercase_ALPHA_wordlist.txt    #1.7TB file size\
+crunch 8 8 "ABCDEFGHIJKLMNOPQRSTUVWXY" -t @@@@@@@@ | tee 8char_uppercase_ALPHA_wordlist.txt    #1.7TB file size\
 crunch 9 9 "0123456789" -t @@@@@@@@@ | tee 9char_mobileno_wordlist.txt     #9GB file size\
 \
 \
