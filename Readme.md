@@ -62,7 +62,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"\
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"\
 \
 **###generate ssl certificate with csr and check md5**\
-openssl req -new -newkey rsa:2048 -nodes -keyout 1grid.co.za.key -out 1grid.co.za.csr\
+openssl req -new -newkey rsa:2048 -nodes -keyout *_website.com.key -out *_website.com.csr\
 openssl x509 -noout -modulus -in *_website.com.crt | openssl md5\
 openssl rsa -noout -modulus -in *_website.com.key | openssl md5\
 nginx -t\
