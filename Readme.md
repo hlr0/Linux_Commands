@@ -1965,6 +1965,8 @@ stat testfile\
 **###GNU parallel bash script run multiple servers**\
 parallel --linebuffer -P 200 --eta -S 10/root@domain.com -S 10/root@domain.com -S 10/root@domain.com --trc my_script.sh bash ::: ./my_script.sh | tee output.txt\
 \
+find / -type f | parallel 'grep --text -rniH "world"' {} \
+\
 
 ```
 #!/bin/bash
@@ -1993,6 +1995,35 @@ function REMOTE_PAYLOAD(){
 printf "============"${i}"===========\n"
 ssh 2> /dev/null -oStrictHostKeyChecking=no -o ConnectTimeout=2 -oBatchMode=yes root@${i} "$(typeset -f) ; REMOTE_PAYLOAD" 
 ```
+
+
+
+
+# SYSTEMD UNIT FILE
+**###create systemd unit file
+```
+[Unit]
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'hostname && echo "Hello World"'
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+systemctl daemon-reload
+systemctl start myservice
+systemctl status myservice
+journalctl -u myservice -f
+```
+
+
+
 
 
 
