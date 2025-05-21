@@ -2008,8 +2008,9 @@ After=network.target
 [Service]
 Type=simple
 ExecStart=/bin/bash -c 'hostname && echo "Hello World"'
-Restart=on-failure
-RestartSec=5s
+User=yourusername       # Run as a specific user (default: root)
+Restart=on-failure      # Restart only if the command fails
+RestartSec=5s           # Wait 5 sec before restarting
 
 [Install]
 WantedBy=multi-user.target
