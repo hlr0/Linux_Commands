@@ -19,7 +19,7 @@ xfreerdp /monitors:0,1 /multimon /u:username@workgroup /v:computer.localhost.com
 virt-manager -c qemu+ssh://username@localhost.computer.com/system\
 \
 **###SSH old school ###**\
-rsync -avzh --progress -e "ssh -i /home/USER/.ssh/id_rsa -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa" root@XXX.XXX.XXX.XXX:/mnt/mydrive/ .
+rsync -avzh --progress -e "ssh -i /home/USER/.ssh/id_rsa -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa" root@XXX.XXX.XXX.XXX:/mnt/mydrive/ .\
 \
 **###pivot ssh**\
 ssh -t root@source.com ssh root@destination.com\
