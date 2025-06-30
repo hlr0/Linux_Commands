@@ -21,6 +21,8 @@ virt-manager -c qemu+ssh://username@localhost.computer.com/system\
 **###SSH old school ###**\
 rsync -avzh --progress -e "ssh -i /home/USER/.ssh/id_rsa -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa" root@XXX.XXX.XXX.XXX:/mnt/mydrive/ .\
 \
+ssh -i /home/USER/.ssh/id_rsa -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@XXX.XXX.XXX.XXX\
+\
 **###pivot ssh**\
 ssh -t root@source.com ssh root@destination.com\
 ssh -J "root@source1.com,root@source2.com" root@destination.com\
