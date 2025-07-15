@@ -39,6 +39,13 @@ apt update ; apt upgrade\
 **###change mnt directory to mount drive**\
 ls -lsah / | egrep -e "mnt" | awk {'print $2,$6,$10'} | sed -e "s/mnt/mount drive/g" | cut -d "e" -f 1\
 \
+**///REBUILD A KERNEL**\
+yum reinstall kernel-3.10.0-962.3.2.lve1.5.87.el7.x86_64\
+dracut -f /boot/initramfs-3.10.0-962.3.2.lve1.5.87.el7.x86_64.img 3.10.0-962.3.2.lve1.5.87.el7.x86_64\
+grub2-mkconfig -o /boot/grub2/grub.cfg\
+grub2-set-default "CloudLinux (3.10.0-962.3.2.lve1.5.87.el7.x86_64) 7.9 (Boris Yegorov)"\
+reboot\
+\
 **###calculator**\
 echo $((4 + 2))\
 \
